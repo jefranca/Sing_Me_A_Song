@@ -11,4 +11,8 @@ async function postVote({ score, id }) {
   await connection.query("UPDATE songs SET score=$1 WHERE id=$2", [score, id]);
 }
 
-export { getScore, postVote };
+async function deleteSong(id) {
+  await connection.query("DELETE FROM songs WHERE id=$1", [id]);
+}
+
+export { getScore, postVote, deleteSong };

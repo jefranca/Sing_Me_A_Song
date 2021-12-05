@@ -11,6 +11,7 @@ app.use(cors());
 app.get("/health", async (req, res) => res.sendStatus(200));
 app.post("/recommendations", recommendationsController.postRecommendations);
 app.post("/recommendations/:id/upvote", votesController.postVote);
+app.post("/recommendations/:id/downvote", votesController.postVote);
 
 app.use(errorHandler);
 

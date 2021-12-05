@@ -5,8 +5,9 @@ import SongNotFound from "../errors/SongNotFound.js";
 
 async function postVote(req, res, next) {
   try {
+    const isUpvote = (req.url.split("/")[3] === 'upvote');
     await validations.idValidation(req.params);
-    await votesService.postVote(req.params);
+    await votesService.postVote(req.params, isUpvote);
 
     res.sendStatus(200);
   } catch (error) {
