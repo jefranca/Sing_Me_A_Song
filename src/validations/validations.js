@@ -7,6 +7,10 @@ async function recommendationsValidations(recommendation) {
     throw new ValidationError(joiValidation.error.details[0].message);
 }
 
-export {
-    recommendationsValidations
+async function idValidation(id) {
+  const joiValidation = schemas.idSchema.validate(id);
+  if (joiValidation.error)
+    throw new ValidationError(joiValidation.error.details[0].message);
 }
+
+export { recommendationsValidations, idValidation };
