@@ -6,7 +6,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./src/server.js",
-    "test": "NODE_ENV=test npx jest"
+    "start:dev": "nodemon ./src/server.js",
+    "test": "npx jest",
+    "test:watch": "npx jest --watch",
+    "test:coverage": "npx jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +18,13 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "joi": "^17.5.0",
     "pg": "^8.7.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "babel-jest": "^27.4.2",
+    "jest": "^27.4.3"
   }
 }
