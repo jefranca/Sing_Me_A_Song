@@ -13,7 +13,7 @@ async function postVote(req, res, next) {
   } catch (error) {
     if (error instanceof ValidationError)
       return res.status(400).send(error.message);
-    if (error instanceof SongNotFound)
+      if (error instanceof SongNotFound)
       return res.status(404).send(error.message);
 
     next(error);
