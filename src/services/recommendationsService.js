@@ -16,7 +16,7 @@ async function getRandomSong() {
   if (randomNumber <= 0.3 && minScore.rows[0].score <= 10)
     filter = "WHERE score <= 10 ";
 
-  return await recommendationsRepository.getRecommendation(filter)
+  return await recommendationsRepository.getRecommendation(filter);
 }
 
 export { postRecommendations, getRandomSong };

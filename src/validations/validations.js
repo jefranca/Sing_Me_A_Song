@@ -13,4 +13,10 @@ async function idValidation(id) {
     throw new ValidationError(joiValidation.error.details[0].message);
 }
 
-export { recommendationsValidations, idValidation };
+async function amountValidation(amount) {
+  const joiValidation = schemas.amountSchema.validate(amount);
+  if (joiValidation.error)
+    throw new ValidationError(joiValidation.error.details[0].message);
+}
+
+export { recommendationsValidations, idValidation, amountValidation };
