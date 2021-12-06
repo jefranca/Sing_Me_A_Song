@@ -15,8 +15,6 @@ const idSchema = joi.object({
   id: joi.number().integer().positive(),
 });
 
-const amountSchema = joi.object({
-  amount: joi.number().integer().positive(),
-});
+const amountSchema = joi.number().integer().positive();
 
 export { recommendationsSchema, idSchema, amountSchema };

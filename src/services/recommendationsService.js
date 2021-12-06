@@ -19,4 +19,8 @@ async function getRandomSong() {
   return await recommendationsRepository.getRecommendation(filter);
 }
 
-export { postRecommendations, getRandomSong };
+async function getTopSongs(amount) {
+  return await recommendationsRepository.getTopSongs(amount);
+}
+
+export { postRecommendations, getRandomSong, getTopSongs };

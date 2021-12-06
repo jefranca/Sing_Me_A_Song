@@ -25,4 +25,17 @@ async function getRecommendation(filter) {
   );
 }
 
-export { postRecommendations, getMaxScore, getMinScore, getRecommendation };
+async function getTopSongs(amount) {
+  return await connection.query(
+    `SELECT score FROM songs ORDER BY score DESC LIMIT $1`,
+    [amount]
+  );
+}
+
+export {
+  postRecommendations,
+  getMaxScore,
+  getMinScore,
+  getRecommendation,
+  getTopSongs,
+};
