@@ -7,4 +7,22 @@ async function postRecommendations({ name, youtubeLink }) {
   );
 }
 
-export { postRecommendations };
+async function getMaxScore() {
+  return await connection.query(
+    "SELECT score FROM songs ORDER BY score DESC LIMIT 1"
+  );
+}
+
+async function getMinScore() {
+  return await connection.query(
+    "SELECT score FROM songs ORDER BY score LIMIT 1"
+  );
+}
+
+async function getRecommendation(filter) {
+  return await connection.query(
+    `SELECT * FROM songs ${filter}ORDER BY RANDOM() LIMIT 1`
+  );
+}
+
+export { postRecommendations, getMaxScore, getMinScore, getRecommendation };

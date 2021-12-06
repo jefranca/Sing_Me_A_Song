@@ -18,4 +18,16 @@ async function postRecommendations(req, res, next) {
   }
 }
 
-export { postRecommendations };
+async function getRandomSong(req, res, next) {
+  try {
+    const recommendation = await recommendationsService.getRandomSong()
+    
+    res.status(200).send(recommendation.rows);
+  } catch (error) {
+    if (error instanceof SongNotFound)
+      return res.status(404).send(error.message);
+    next(error);
+  }
+}
+
+export { postRecommendations, getRandomSong };
